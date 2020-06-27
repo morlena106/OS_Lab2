@@ -3,7 +3,8 @@
 
 #Дополнительные пакеты, которые потребоалось установить:
 
-#curl
+#curl 
+
 #$ sudo apt install curl
 
 #rust
@@ -28,8 +29,8 @@
 
  #Options:
  
- #init            install all the necessary packages and dependencies
+ #init            /install all the necessary packages and dependencies
  
- #mainnet [name]  launch the Robonomics stack in Mainnet (default: airalab)
+ #mainnet [name]  /launch the Robonomics stack in Mainnet (default: airalab)
  
- #sidechain       launch the Robonomics stack in Sidechain
+ #sidechain       /launch the Robonomics stack in Sidechain
