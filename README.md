@@ -5,17 +5,17 @@
 
 #curl 
 
-#$ sudo apt install curl
+>$ sudo apt install curl
 
 #rust
 
-#$ curl https://sh.rustup.rs -sSf | sh
+>$ curl https://sh.rustup.rs -sSf | sh
 
-#https://rustup.rs/ помощник в установке, если не работает
+>https://rustup.rs/ помощник в установке, если не работает
 
 #cargo
 
-#$ sudo apt install cargo
+>$ sudo apt install cargo
 
 #Сначала я пробовала установить с Nixos, но возникло много проблем на WSL 
 
