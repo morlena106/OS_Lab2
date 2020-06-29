@@ -1,25 +1,36 @@
 #!/bin/bash
 
-#cd
-mkdir rob_m2
-cd rob_m2/
+сd
+mkdir rob_m
+cd rob_m/
 way=$(pwd)
 
-#git clone https://github.com/airalab/robonomics_comm.git
+#Проверяем наличие curl, cargo и rust, если их нет, устанавливаем 
+function check_pkg () {
 
-function install_nix () {
-	#Install Nix package manager
-	sudo apt install curl
-	sudo apt install eth-keyfile
-	curl https://nixos.org/nix/install | sh
-	nix-shell --run "cargo run --release"
-				}
+if [[ -z 'ls /usr/bin/curl* | grep "curl"' ]]
+then
+        sudo apt install curl
+else
+        echo 'you have curl'
+fi
+
+if [[ -z 'ls /usr/bin/cargo* | grep "cargo"' ]]
+then
+        sudo apt install cargo
+else
+        echo 'you have cargo'
+fi
+
+if [[ -z 'ls /usr/bin/rust* | grep "rust"' ]]
+then
+        curl https://sh.rustup.rs -sSf | sh
+else
+        echo 'you have rust'
+fi
+}
 
 function inst_from_source() {
-	#Building from source
-	sudo apt install curl
-	curl https://sh.rustup.rs -sSf | sh
-
 	rustup update nightly
 	rustup target add wasm32-unknown-unknown --toolchain nightly
 	rustup update stable
@@ -32,7 +43,7 @@ function make_clone () {
 	mkdir -p ws/src && cd ws/src
 	git clone https://github.com/airalab/robonomics_comm
 	catkin_init_workspace && cd .. && catkin_make
-							}
+}
 
 function run_the_robonom () {
 	cd $way
@@ -47,7 +58,7 @@ function integration_in_ROS () {
 	cargo build --release --features ros --bin robonomics
 }
 
-#install_nix
+check_pkg
 inst_from_source
 make_clone
 integration_in_ROS
