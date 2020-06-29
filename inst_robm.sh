@@ -54,6 +54,7 @@ function run_the_robonom () {
 }
 
 function integration_in_ROS () {
+	cd 
 	source /opt/ros/melodic/setup.bash
 	cargo build --release --features ros --bin robonomics
 }
